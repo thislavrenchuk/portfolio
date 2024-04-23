@@ -1,3 +1,53 @@
-theme: jekyll-theme-minimal
-title: Anastasiya Lavrenchuk Portfolio
-description: Check out my latest work or connect with me via LinkedIn.
+title: "Anastasiya Lavrenchuk Portfolio"
+email: anastasia.lavrenchuk@gmail.com
+timezone: GMT
+baseurl: "/affiliates-jekyll-theme"
+permalink: "/:title/"
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+author: Ana
+paginate: 30
+disqus: 'demowebsite'
+locale: en_us
+lang: en_us
+feed_items: 5
+feed_update_period: daily
+feed_update_frequency: 1
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+sass:
+  sass_dir: _sass
+  style: :compressed
+ganalytics: UA-113961478-1
+
+# Authors
+authors:
+  sal:
+    name: Sal
+    display_name: Sal
+    avatar: 'assets/images/sal.png'
+    email: wowthemesnet@gmail.com
+    web: https://www.wowthemes.net/category/jekyll-themes/
+    twitter: https://twitter.com/wowthemesnet
+    description: "Author of Affiliates, a template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
+  john:
+    name: Ana
+    display_name: Ana
+    avatar: 'assets/images/ana.png'
+    email: anastasia.lavrenchuk@gmail.com
+    web: https://www.linkedin.com/in/anastasiya-lavrenchuk/
+    description: "Hello, my name is Ana."
+
+# Social
+social:
+  linkedin: https://www.linkedin.com/in/anastasiya-lavrenchuk/
+
+# Plugins
+plugins: 
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-archives

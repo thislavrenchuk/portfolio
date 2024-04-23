@@ -1,7 +1,7 @@
 title: "Anastasiya Lavrenchuk Portfolio"
 email: anastasia.lavrenchuk@gmail.com
 timezone: GMT
-baseurl: "/affiliates-jekyll-theme"
+baseurl: ''
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
@@ -43,6 +43,7 @@ authors:
 # Social
 social:
   linkedin: https://www.linkedin.com/in/anastasiya-lavrenchuk/
+  github: https://github.com/thislavrenchuk
 
 # Plugins
 plugins: 

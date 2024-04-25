@@ -1,7 +1,7 @@
 title: "Anastasiya Lavrenchuk Portfolio"
 email: anastasia.lavrenchuk@gmail.com
 timezone: GMT
-baseurl: ''
+baseurl: '/alavrenchuk.github.io'
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'

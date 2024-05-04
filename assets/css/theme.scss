@@ -6,7 +6,8 @@
 $green:   #08a057 !default;
 $blue:    #3d61fd !default;
 
-@import "functions";
+@import "./bootstrap/bootstrap";
+
 @import "variables";
 @import "mixins";
 @import "root";

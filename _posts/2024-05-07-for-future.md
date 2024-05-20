@@ -20,7 +20,7 @@ comments: false
 <div id="toc_container">
     <p class="toc_title">Contents</p>
     <ul class="toc_list">
-        <li><a href="#MainObjectives">Main Objectives</a>
+        <li><a href="#MainObjectives">Project Objectives</a>
             <ul>
                 <li><a href="#CombatMechanic">Combat Mechanic Design</a></li>
                 <li><a href="#Story">Story</a></li>
@@ -29,10 +29,10 @@ comments: false
         <li><a href="#ArtAndDesign">Art & Design</a></li>
             <ul>
                 <li><a href="#Inspiration">Inspiration</a></li>
-                <li><a href="#3Cs">The 3Cs</a></li>
-                <li><a href="#EnemyDesign">Enemy Design</a></li>
-                <li><a href="#LevelDesign">Level Design</a></li>
             </ul>
+        <li><a href="#3Cs">The 3Cs</a></li>
+        <li><a href="#EnemyDesign">Enemy Design</a></li>
+        <li><a href="#LevelDesign">Level Design</a></li>
         <li><a href="#Challenges">Challenges</a></li>
     </ul>
 </div>
@@ -139,22 +139,22 @@ The models chosen for the ECs has a pop of orange colour to signify danger, and 
 With the above in mind, I envisioned a setting that varied in available space, to allow for both long-range and close-quarters combat in which the player would have the opportunity to use the varied melee attacks. A house, through which they can discreetly make their way, get rid of enemies, to ultimately reach the top floor where the goal of the game lies. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_StoryPoints.png" alt="Level Pre-requisites">
+    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_StoryPoints.png" width="500" alt="Level Pre-requisites">
 </figure>
-<p style="text-align: center;"><i>Level Pre-requisites</i></p>
+<p style="text-align: center;"><i>First Draft Level Pre-requisites</i></p>
 
 <figure>
     <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" alt="First Draft Level Design">
 </figure>
 <p style="text-align: center;"><i>First Draft Level Design</i></p>
 
-The story would start outside the house, where the Player would be able to notice the enemies from afar. Their task would then be to infiltrate the house - the inner monologue would signal that the front door is not an option (due to the Enemy Character's presence just outside of it) and they will be forced to make their way around where they will have opportunity for two different routes, either through an open window on the ground floor, or the back door. The door is easier to spot but will require evading an enemy before entering. 
+The story would start outside the house, where the Player would be able to notice the enemies from afar. Their task would then be to infiltrate the house - the inner monologue would signal that the front door is not an option (due to the EC presence just outside of it) and they will be forced to make their way around where they will have opportunity for two different routes, either through an open window on the ground floor, or the back door. The door is easier to spot but will require evading an enemy before entering. 
 
 The first floor contains multiple opportunities for acquiring weapons. 
 
-**The inner monologue of the PC will signal to the Player where to find these - e.g. upon climbing through the open window, the PC will think "My bow should just be through the door here..." or when the back door is in the line of sight, "Let's hope they didn't find the arrows I left by the back door last night." etc.**
+**The inner monologue of the PC will signal to the Player where to find these. E.g. upon climbing through the open window, the PC will think "My bow should just be through the door here..." or when the back door is in the line of sight, "Let's hope they didn't find the arrows I left by the back door last night." etc.**
 
-Entering the house through the backdoor, although is the longer route, puts the Player at a slight advantage as opposed to climbing into the house through the open window. They will pick up the arrows by the door, and be directed to the kitchen by the inner monologue and the Enemy Character presence further down the corridor. The Players that choose to climb through the open window would also find the bow in the adjacent room, but are more likely to face the next EC-filled room without the accompanying set of arrows. If they survive, they will be rewarded by a stash of arrows in the corner of the room. 
+Entering the house through the backdoor, although is the longer route, puts the Player at a slight advantage as opposed to climbing into the house through the open window. They will pick up the arrows by the door, and be directed to the kitchen by the inner monologue and the EC presence further down the corridor. The Players that choose to climb through the open window would also find the bow in the adjacent room, but are more likely to face the next EC-filled room without the accompanying set of arrows. If they survive, they will be rewarded by a stash of arrows in the corner of the room. 
 
 At this point, regardless of the route chosen, the Player should possess both bow and arrow and upon reaching the staircase, easy clear it of ECs and reach the next floor.
 

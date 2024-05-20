@@ -11,8 +11,8 @@ I am a passionate, creative individual looking to transition into a Lead Technic
 <object
     type="application/pdf"
     data="{{ site.baseurl }}/assets/images/Technical_Game_Designer_CV.pdf"
-    width="600"
-    height="800"
+    width="100%"
+    height="100%"
 ></object>
 
 [Download Resume PDF](/assets/images/resume.pdf){: .btn .btn-outline--secondary }

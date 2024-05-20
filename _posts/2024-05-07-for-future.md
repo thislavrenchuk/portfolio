@@ -3,7 +3,7 @@ layout: post
 title:  "For Future"
 author: ana 
 categories: [ Unreal, solo-dev ]
-image: assets/images/For_Future_Cover.png
+image: assets/images/For_Future_Cover_2.png
 comments: false
 ---
 
@@ -20,24 +20,28 @@ comments: false
 <div id="toc_container">
     <p class="toc_title">Contents</p>
     <ul class="toc_list">
-        <li><a href="#First_Point_Header">1 First Point Header</a>
-        <ul>
-            <li><a href="#First_Sub_Point_1">1.1 First Sub Point 1</a></li>
-            <li><a href="#First_Sub_Point_2">1.2 First Sub Point 2</a></li>
-        </ul>
+        <li><a href="#MainObjectives">Main Objectives</a>
+            <ul>
+                <li><a href="#CombatMechanic">Combat Mechanic Design</a></li>
+                <li><a href="#Story">Story</a></li>
+            </ul>
         </li>
-        <li><a href="#Second_Point_Header">2 Second Point Header</a></li>
-        <li><a href="#Third_Point_Header">3 Third Point Header</a></li>
+        <li><a href="#ArtAndDesign">Art & Design</a></li>
+            <ul>
+                <li><a href="#Inspiration">Inspiration</a></li>
+                <li><a href="#3Cs">The 3Cs</a></li>
+                <li><a href="#EnemyDesign">Enemy Design</a></li>
+                <li><a href="#LevelDesign">Level Design</a></li>
+            </ul>
+        <li><a href="#Challenges">Challenges</a></li>
     </ul>
 </div>
 
 ***
 
-# Main Objectives
+<h1 id="MainObjectives">Main Objectives</h1>
 
-<h1 id="First_Point_Header">Main Objectives</h2>
-
-### Combat Mechanic Design
+<h3 id="CombatMechanic">Combat Mechanic Design</h3>
 
 The project's main goal was to develop a melee combat system heavily inspired by *The Last Of Us* and expand on the versatility of weapons a Player Character (PC) has at their disposal. 
 
@@ -58,7 +62,7 @@ These are the questions I sought to answer with this project. I would expand on 
 
 ***
 
-### Story
+<h3 id="Story">Story</h3>
 
 With my focus on Combat Mechanic Design and Level Design, I wanted to keep the story bite-sized but straightforward. The player needed a sense of urgency and a reason to want to reach the end goal by confronting Enemy Characters (EC). From personal experience, players seem to be effectively affected when the story goal is relatable, so I chose a trope I knew to be effective - the parent-child dynamic. 
 
@@ -73,9 +77,9 @@ Due to time constraints, I knew the game would need to be fairly small, a single
 
 ***
 
-# Art & Design
+<h1 id="ArtAndDesign">Art & Design</h1>
 
-## Inspiration
+<h2 id="Inspiration">Inspiration</h2>
 
 To give the game a *darker* feel, I took inspiration from the Noir Comic style, pulling images from various sources to get a better understanding of the different colour scheme options and greyscale.
 
@@ -88,7 +92,7 @@ The idea for *pops of colour* seen in some images (also reminiscent of games lik
 
 ***
 
-### The 3Cs
+<h3 id="3Cs">The 3Cs</h3>
 
 Having limited time for modelling characters I was limited to using freely available assets online, but the overall design for the character pivoted on making visible the story's *VIP*, i.e. the baby called Future the Player Character is carrying. This was inspired in part by the Deliveryman Sam from *Death Stranding*.
 
@@ -112,7 +116,7 @@ A key addition that I wanted to add to the game, faithful to the source of inspi
 
 ***
 
-### Enemy Design
+<h3 id="EnemyDesign">Enemy Design</h3>
 
 Enemy Characters (EC) were a key part of the story narrative and had to provide a significant threat to the Player Character on their way into the house. The ECs were to be varied, and pose different levels of threat. As the PC moved through the game, the EC would become more difficult, and encourage the PC to seek out weapons or items to help them through the level (as prompted by the inner monologue of the PC).
 
@@ -130,7 +134,7 @@ The models chosen for the ECs has a pop of orange colour to signify danger, and 
 
 ***
 
-## Level Design
+<h3 id="LevelDesign">Level Design</h3>
 
 With the above in mind, I envisioned a setting that varied in available space, to allow for both long-range and close-quarters combat in which the player would have the opportunity to use the varied melee attacks. A house, through which they can discreetly make their way, get rid of enemies, to ultimately reach the top floor where the goal of the game lies. 
 
@@ -160,6 +164,6 @@ The Player again will face a choice of route and race against the clock to the r
 
 ***
 
-# Challenges:
+<h1 id="Challenges">Challenges</h1>
 
 **ADD CHALLENGES**

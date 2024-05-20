@@ -6,7 +6,9 @@ image:
 comments: false
 ---
 
-I am a passionate, creative individual looking to transition into a Lead Technical Game Designer role where I can leverage my 4+ year's worth of professional experience to lead and enhance the efficiency of my team.
+Find my Resume attached below.
+
+[Download Resume PDF](/assets/images/resume.pdf){: .btn .btn-outline--secondary }
 
 <object
     type="application/pdf"
@@ -16,4 +18,3 @@ I am a passionate, creative individual looking to transition into a Lead Technic
 >
 </object>
 
-[Download Resume PDF](/assets/images/resume.pdf){: .btn .btn-outline--secondary }

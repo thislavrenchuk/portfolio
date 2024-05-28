@@ -934,6 +934,10 @@ $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
 .align-text-bottom { vertical-align: text-bottom !important; }
 .align-text-top    { vertical-align: text-top !important; }
 
+.rounded-image {
+  border-radius: 50%;
+}
+
 // stylelint-disable declaration-no-important
 
 @mixin hover-focus {

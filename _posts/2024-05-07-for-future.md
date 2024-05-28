@@ -112,7 +112,10 @@ The controls were to be intuitive and centred around the basic TPS standard with
 
 A key addition that I wanted to add to the game, faithful to the source of inspiration, was to add comic-esque speech bubbles during PC's inner monologue, on top of the voiceover. 
 
-**ADD IMAGE OF IMPLEMENTATION.**
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" alt="Comic-style speech bubble monologues">
+</figure>
+<p style="text-align: center;"><i>Comic-style speech bubble monologues.</i></p>
 
 ***
 

@@ -144,6 +144,11 @@ The 3 Enemy tiers I came up with were as follows:
 
 The models chosen for the ECs has a pop of orange colour to signify danger, and would be identifiable within the general greyscale colour palette.
 
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" alt="Multiplier Functionality Test">
+</figure>
+<p style="text-align: center;"><i>Multiplier "cloning" functionality test.</i></p>
+
 ***
 
 <h3 id="LevelDesign">Level Design</h3>

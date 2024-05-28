@@ -20,12 +20,12 @@ comments: false
 <div id="toc_container">
     <p class="toc_title">Contents</p>
     <ul class="toc_list">
-        <li><a href="#MainObjectives">Project Objectives</a>
+        <li><a href="#MainObjectives">Main Project Objectives</a>
             <ul>
                 <li><a href="#CombatMechanic">Combat Mechanic Design</a></li>
-                <li><a href="#Story">Story</a></li>
             </ul>
         </li>
+        <li><a href="#Story">Story</a></li>
         <li><a href="#ArtAndDesign">Art & Design</a></li>
             <ul>
                 <li><a href="#Inspiration">Inspiration</a></li>
@@ -34,26 +34,29 @@ comments: false
         <li><a href="#EnemyDesign">Enemy Design</a></li>
         <li><a href="#LevelDesign">Level Design</a></li>
         <li><a href="#Challenges">Challenges</a></li>
+        <li><a href="#FutureWork">Future Work</a></li>
     </ul>
 </div>
 
 ***
 
-<h1 id="MainObjectives">Main Objectives</h1>
+<h1 id="MainObjectives">Main Project Objectives</h1>
 
 <h3 id="CombatMechanic">Combat Mechanic Design</h3>
 
-The project's main goal was to develop a melee combat system heavily inspired by *The Last Of Us* and expand on the versatility of weapons a Player Character (PC) has at their disposal. 
+The project's main goal was to develop a melee combat system inspired by *The Last Of Us* and expand on the versatility of weapons a Player Character (PC) has at their disposal. 
 
-The bow-and-arrow weapon combination is seen across many game genres (*The Last Of Us*, *Legend of Zelda: Breath of The Wild*, etc.) paired with custom longevity feature: e.g. you run out of arrows, bow breaks after N uses. 
+The bow-and-arrow weapon combination paired with custom longevity feature - e.g. you run out of arrows, bow breaks after N uses - is seen across many TPS games (*The Last Of Us*, *Legend of Zelda: Breath of The Wild*, etc.)
 
-But what happens to the bow when you run out of arrows? Why not be able to still use it to whack your enemy if you're out of options?
+But what happens when you run out of arrows? The bow typically becomes useless. 
+
+Why not be able to still use it to whack your enemy if you're out of options?
 
 And why not use arrows as a shiv if your bow breaks?
 
-These are the questions I sought to answer with this project. I would expand on the usual bow-and-arrow mechanic, incorporating the weapon-expiry concept into the individual components that make up the weapon: the bow and the arrows. The Player Character would be able to use either one separately as well as together. 
+With these questions in mind I set out to work on this project. My goal was to expand on the usual bow-and-arrow mechanic, incorporating the weapon-expiry concept into the individual components that make up the weapon, i.e. the bow and the arrows. The Player Character would be able to use either one separately as well as together. 
 
-**Conclusion**: 
+**Key Design Concepts**: 
 1. The player should have the ability to pick up stashes of arrows and bow separately as found within the level. 
 2. When the player picks up arrows but does not yet possess the bow item, or if the bow has "broken", the player should use the arrows as they would a shiv or dagger. 
 3. Similarly, if the player possesses a bow but has used up all their arrows or hasn't found any in the first place, they would use the available bow as a bat, whipping it at their enemy. 
@@ -62,7 +65,7 @@ These are the questions I sought to answer with this project. I would expand on 
 
 ***
 
-<h3 id="Story">Story</h3>
+<h1 id="Story">Story</h1>
 
 With my focus on Combat Mechanic Design and Level Design, I wanted to keep the story bite-sized but straightforward. The player needed a sense of urgency and a reason to want to reach the end goal by confronting Enemy Characters (EC). From personal experience, players seem to be effectively affected when the story goal is relatable, so I chose a trope I knew to be effective - the parent-child dynamic. 
 
@@ -88,7 +91,19 @@ To give the game a *darker* feel, I took inspiration from the Noir Comic style, 
 </figure>
 <p style="text-align: center;"><i>The Original Noir Comic inspiration board.</i></p>
 
+<h4 id="UseOfColour">Use of Colour</h4>
+
 The idea for *pops of colour* seen in some images (also reminiscent of games like *Mirror's Edge*) would help alleviate the monotony and attract the player to objects of interest, such as enemies and special items. 
+
+<h4 id="SpeechBubbles">UX Add-ons</h4>
+
+A key addition that I wanted to add to the game, faithful to the source of inspiration, was to add comic-esque speech bubbles during PC's inner monologue, on top of the voiceover. 
+
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" alt="Comic-style speech bubble monologues">
+</figure>
+<p style="text-align: center;"><i>Comic-style speech bubble monologues.</i></p>
+
 
 ***
 
@@ -110,12 +125,6 @@ The controls were to be intuitive and centred around the basic TPS standard with
 </figure>
 <p style="text-align: center;"><i>Keyboard controls.</i></p>
 
-A key addition that I wanted to add to the game, faithful to the source of inspiration, was to add comic-esque speech bubbles during PC's inner monologue, on top of the voiceover. 
-
-<figure>
-    <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" alt="Comic-style speech bubble monologues">
-</figure>
-<p style="text-align: center;"><i>Comic-style speech bubble monologues.</i></p>
 
 ***
 
@@ -124,9 +133,9 @@ A key addition that I wanted to add to the game, faithful to the source of inspi
 Enemy Characters (EC) were a key part of the story narrative and had to provide a significant threat to the Player Character on their way into the house. The ECs were to be varied, and pose different levels of threat. As the PC moved through the game, the EC would become more difficult, and encourage the PC to seek out weapons or items to help them through the level (as prompted by the inner monologue of the PC).
 
 The 3 Enemy tiers I came up with were as follows:
-1. "Point and Shoot" - a basic enemy encountered at the beginning of the level, to get the Player accustomed to the combat controls. They were to be straightforward and quick to kill, on the off chance that the PC only had a limited number of weapons (or none at all).
-2. "Tank-O" - as the name suggests, this enemy would be difficult to eliminate, with a lot of health, but low damage. These would be positioned at "gateways" to other parts of the level, e.g. the staircase leading to the next floor, or doorways to important rooms. 
-3. "Multiplier" - low on health but dangerous due to their tendency to multiply. The gas canisters positioned by their shoulders, used as a defense mechanism, when pierced cause hallucinations from which more clones appear. These are easy to kill but are best dealt with at long range and require good aim (and therefore skill from the Player).
+1. "Point and Shoot" - a basic *introductory* enemy encountered at the beginning of the level to get the Player accustomed to the combat controls. Straightforward and quick to kill on the off chance that the PC only had a limited number of weapons (or none at all).
+2. "Tank-O" - this enemy would be difficult to eliminate, with plenty of health, but weak on damage. These would be positioned at "gateways" to other parts of the level, e.g. the staircase leading to the next floor, or doorways to important rooms. 
+3. "Multiplier" - the most dangerous EC due to the tendency to multiply. The gas canisters positioned by their shoulders - used as a defense mechanism - when pierced cause hallucinations and cause clones to appear. They are easy to kill but are best dealt with at long range and require good aim (encouraging skill from the Player).
 
 <figure>
     <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_EnemyDesign.png" alt="Enemy Design">
@@ -151,11 +160,11 @@ With the above in mind, I envisioned a setting that varied in available space, t
 </figure>
 <p style="text-align: center;"><i>First Draft Level Design</i></p>
 
-The story would start outside the house, where the Player would be able to notice the enemies from afar. Their task would then be to infiltrate the house - the inner monologue would signal that the front door is not an option (due to the EC presence just outside of it) and they will be forced to make their way around where they will have opportunity for two different routes, either through an open window on the ground floor, or the back door. The door is easier to spot but will require evading an enemy before entering. 
+The Player would start outside the house, as dictated by the <a href="#Story"><u>Story</u></a>, and would be able to notice the enemies from afar. Through <a href="#SpeechBubbles"><u>inner monologue</u></a> they would be urged to infiltrate the house. They would be urged to avoid the front door due to the EC presence and make their way around the house where they will have opportunity to select one of two routes: an open window on the ground floor, or the back door. The door would be easier to spot but will require evading an enemy before entering. 
 
 The first floor contains multiple opportunities for acquiring weapons. 
 
-**The inner monologue of the PC will signal to the Player where to find these. E.g. upon climbing through the open window, the PC will think "My bow should just be through the door here..." or when the back door is in the line of sight, "Let's hope they didn't find the arrows I left by the back door last night." etc.**
+*The <a href="#SpeechBubbles"><u>inner monologue</u></a> of the PC will signal to the Player where to find these. E.g. upon climbing through the open window, the PC will think "My bow should just be through the door here..." or when the back door is in the line of sight, "Let's hope they didn't find the arrows I left by the back door last night." etc.*
 
 Entering the house through the backdoor, although is the longer route, puts the Player at a slight advantage as opposed to climbing into the house through the open window. They will pick up the arrows by the door, and be directed to the kitchen by the inner monologue and the EC presence further down the corridor. The Players that choose to climb through the open window would also find the bow in the adjacent room, but are more likely to face the next EC-filled room without the accompanying set of arrows. If they survive, they will be rewarded by a stash of arrows in the corner of the room. 
 
@@ -169,4 +178,21 @@ The Player again will face a choice of route and race against the clock to the r
 
 <h1 id="Challenges">Challenges</h1>
 
-**ADD CHALLENGES**
+1. Migrating to newer versions of Unreal Engine
+
+Although the migration process is fairly straightforward, there are hidden challenges that crop up when you least expect it. The lesson I learnt is to become much more prudent & getting acquianted with Unreal's Release Notes as soon as possible. 
+
+2. Retargeting animations 
+
+While working on the project Unreal had released a much improved feature for Retargeting Animations, however due to being very new, there were very few online resources to help with debugging. Ideally I would like to learn more about Rigging Skeletons to better understand the problems around animation. 
+
+
+<h1 id="FutureWork">Future Work</h1>
+
+1. I want to dedicate more time to working on the **3Cs**. 
+
+TBA
+
+2. Perfect combat mechanics for a more balanced experience. 
+
+TBA

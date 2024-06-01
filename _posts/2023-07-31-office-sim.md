@@ -17,13 +17,10 @@ comments: false
 
 **Inspiration**: Stanley Parable, Monsters, Inc.
 
-**itch.io**:
-
-<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
-
 <div id="toc_container">
     <p class="toc_title">Contents</p>
     <ul class="toc_list">
+        <li><a href="#Result">The Game</a></li>
         <li><a href="#MainObjectives">Project Objectives</a></li>
         <li><a href="#Implementation">Implementation</a>
             <ul>
@@ -37,10 +34,17 @@ comments: false
     </ul>
 </div>
 
-https://youtu.be/hj4TxRTAuak
+***
+
+<h1 id="Result">The Game</h1>
+
+<h3>Playthrough</h3>
 
 {% include youtube.html id="hj4TxRTAuak" %}
 
+<h3>Itch.io</h3>
+
+<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
 
 ***
 

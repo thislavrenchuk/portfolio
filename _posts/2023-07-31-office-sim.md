@@ -7,11 +7,11 @@ image: assets/images/office-sim.png
 comments: false
 ---
 
+<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
+
 # Introduction:
 
 **Name**: The Oddity Office
-
-**Itch.io**: [itch.io/the-oddity-office](https://anasaurus.itch.io/the-oddity-office)
 
 **Project Goal**: learn about 2D game development, and create a basic quest system in C++.
 
@@ -35,12 +35,7 @@ comments: false
     </ul>
 </div>
 
-<video controls>
-  <source src="{{ site.baseurl }}/assets/videos/The_Office_Sim_Playthrough.mp4" type="video/mp4">
-</video>
-<p style="text-align: center;"><i>Game Playthrough.</i></p>
-
-<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
+[![The Oddity Office Playthrough](https://youtu.be/hj4TxRTAuak)](https://youtu.be/hj4TxRTAuak)
 
 ***
 

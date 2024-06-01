@@ -40,6 +40,8 @@ comments: false
 </video>
 <p style="text-align: center;"><i>Game Playthrough.</i></p>
 
+<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
+
 ***
 
 <h1 id="MainObjectives">Project Objectives</h1>

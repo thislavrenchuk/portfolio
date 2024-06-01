@@ -11,9 +11,9 @@ comments: false
 
 **Name**: The Oddity Office
 
-**Project Goal**: learn about 2D game development, and create a basic quest system in C++.
+**Goal**: learn about 2D game development, and create a basic quest system in C++.
 
-**Project structure**: Developer in a 3 people team working to a 5-day deadline. 
+**Team structure**: Developer in a 3 people team working to a 5-day deadline. 
 
 **Inspiration**: Stanley Parable, Monsters, Inc.
 
@@ -37,11 +37,9 @@ comments: false
     </ul>
 </div>
 
-<iframe width="560" height="315"
-src="https://youtu.be/hj4TxRTAuak" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
+https://youtu.be/hj4TxRTAuak
+
+{% include youtube.html id="hj4TxRTAuak" %}
 
 
 ***

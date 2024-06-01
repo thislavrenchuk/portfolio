@@ -9,13 +9,13 @@ comments: false
 
 <!-- <iframe style="width:100%;" height="315" src="https://www.youtube.com/embed/Cniqsc9QfDo?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe> -->
 
-**Project Name**: For Future
+**Name**: For Future
 
-**Project Status**: In-Progress
+**Status**: In-Progress
 
-**Project Goal**: Develop a mechanic inspired by The Last Of Us for using arrows for close melee combat as well as throwables. 
+**Goal**: Develop a mechanic inspired by The Last Of Us for using arrows for close melee combat as well as throwables. 
 
-**Project Structure**: Solo-project. Designed the system, combat mechanic, and art direction. 
+**Team Structure**: Solo-project. Designed the system, combat mechanic, and art direction. 
 
 <div id="toc_container">
     <p class="toc_title">Contents</p>

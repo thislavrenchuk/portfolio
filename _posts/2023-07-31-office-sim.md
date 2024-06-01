@@ -7,8 +7,6 @@ image: assets/images/office-sim.png
 comments: false
 ---
 
-<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
-
 # Introduction:
 
 **Name**: The Oddity Office
@@ -18,6 +16,10 @@ comments: false
 **Project structure**: Developer in a 3 people team working to a 5-day deadline. 
 
 **Inspiration**: Stanley Parable, Monsters, Inc.
+
+**itch.io**:
+
+<iframe src="https://itch.io/embed/2135977" width="552" height="167" frameborder="0"><a href="https://anasaurus.itch.io/the-oddity-office">The Oddity Office by Ana Lavrenchuk</a></iframe>
 
 <div id="toc_container">
     <p class="toc_title">Contents</p>
@@ -35,7 +37,12 @@ comments: false
     </ul>
 </div>
 
-[![The Oddity Office Playthrough](https://youtu.be/hj4TxRTAuak)](https://youtu.be/hj4TxRTAuak)
+<iframe width="560" height="315"
+src="https://youtu.be/hj4TxRTAuak" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+
 
 ***
 

@@ -61,8 +61,6 @@ With these questions in mind I set out to work on this project. My goal was to e
 2. When the player picks up arrows but does not yet possess the bow item, or if the bow has "broken", the player should use the arrows as they would a shiv or dagger. 
 3. Similarly, if the player possesses a bow but has used up all their arrows or hasn't found any in the first place, they would use the available bow as a bat, whipping it at their enemy. 
 
-**ADD CLIPS OF ATTACKS.**
-
 ***
 
 <h1 id="Story">Story</h1>
@@ -125,7 +123,6 @@ The controls were to be intuitive and centred around the basic TPS standard with
 </figure>
 <p style="text-align: center;"><i>Keyboard controls.</i></p>
 
-
 ***
 
 <h3 id="EnemyDesign">Enemy Design</h3>
@@ -177,27 +174,33 @@ At this point, regardless of the route chosen, the Player should possess both bo
 
 The Player again will face a choice of route and race against the clock to the reach the final room and the end of the game. 
 
-**ADD A WHITEBOX PLAYTHROUGH**
-
 ***
 
 <h1 id="Challenges">Challenges</h1>
 
-1. Migrating to newer versions of Unreal Engine
+<h4>1. Migrating to newer versions of Unreal Engine</h4>
 
 Although the migration process is fairly straightforward, there are hidden challenges that crop up when you least expect it. The lesson I learnt is to become much more prudent & getting acquianted with Unreal's Release Notes as soon as possible. 
 
-2. Retargeting animations 
+<h4>2. Retargeting animations</h4>
 
 While working on the project Unreal had released a much improved feature for Retargeting Animations, however due to being very new, there were very few online resources to help with debugging. Ideally I would like to learn more about Rigging Skeletons to better understand the problems around animation. 
 
 
 <h1 id="FutureWork">Future Work</h1>
 
-1. I want to dedicate more time to working on the **3Cs**. 
+The development of this game is still in-progress, though some of the key features and functionality has already been implemented. Below are the most urgent next steps as well as ideas for future expansions beyond the current scope of the work.
 
-TBA
+<h4>1. Dedicate more time working on the **3Cs**.</h4>
 
-2. Perfect combat mechanics for a more balanced experience. 
+Specifically working on the Camera and the transition from an outside to an inside environment. There is a lot of potential to experiment with different camera options. This would require expanding on the zoom functionality that is already implemented and figuring out the collision of the camera with walls, doors and stairs.
 
-TBA
+<h4>2. Perfect combat mechanics for a more balanced experience.</h4>
+
+Although some preliminary choices have been made as to the Enemy design, these are yet to be tested with the player experience in mind in order to make sure the combat is balanced and enjoyable. 
+
+<h4>3. Start work on Sound Design.</h4>
+
+* Research Sound Design for TPS games, looking into well established games. 
+* Work on recording voice-over for the Player Character's inner monologue.
+* Experiment with different sound effects. 

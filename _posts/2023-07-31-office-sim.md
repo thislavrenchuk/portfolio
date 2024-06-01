@@ -11,13 +11,13 @@ comments: false
 
 **Name**: The Oddity Office
 
-[itch.io](https://anasaurus.itch.io/the-oddity-office)
+**Itch.io**: [itch.io/the-oddity-office](https://anasaurus.itch.io/the-oddity-office)
 
 **Project Goal**: learn about 2D game development, and create a basic quest system in C++.
 
 **Project structure**: Developer in a 3 people team working to a 5-day deadline. 
 
-**Itch.io**: [itch.io/the-oddity-office](https://anasaurus.itch.io/the-oddity-office)
+**Inspiration**: Stanley Parable, Monsters, Inc.
 
 <div id="toc_container">
     <p class="toc_title">Contents</p>
@@ -35,7 +35,10 @@ comments: false
     </ul>
 </div>
 
-**ADD VIDEO OF THE PLAYTHROUGH**
+<video controls>
+  <source src="{{ site.baseurl }}/assets/videos/The_Office_Sim_Playthrough.mp4" type="video/mp4">
+</video>
+<p style="text-align: center;"><i>Game Playthrough.</i></p>
 
 ***
 
@@ -87,9 +90,20 @@ For simplicity, the game followed a classic platformer setup that stressed explo
 
 <h4>Character</h4>
 
-**TBA - mention the inner dialogue that comes through when interacting with the world**
+With one of the focuses of the game being exploration, I wanted the Player to be able to interact with random objects in the world. This came together in a narration-style pop-up in the top-left of the screen (to differentiate from the dialogue pop-ups when interacting with NPCs).
 
-**ADD GIF of interacting with objects rather than NPCs**
+My intention for these interactions was to give a strong sense of identity for the Player Character (PC), so reading a signpost would reflect not the signpost's contents, but rather the inner dialogue of the PC. This gave the PC depth, and individuality which would help with the telling of the Story narrative.
+
+<figure class="figure-shadow">
+    <img src="{{ site.baseurl }}/assets/images/object_interact-office-sim.gif" alt="Interaction with world & objects">
+</figure>
+<p style="text-align: center;"><i>Interaction with world & objects.</i></p>
+
+<figure class="figure-shadow">
+    <img src="{{ site.baseurl }}/assets/images/npc_interact-office-sim.gif" alt="Interaction with NPCs">
+</figure>
+<p style="text-align: center;"><i>Interaction with NPCs.</i></p>
+
 
 <h2 id="LevelDesign">Level Design</h2>
 
@@ -97,11 +111,12 @@ I wanted the levels to reflect the general theme and story of the game discussed
 
 As discussed in the <a href="#Challenges">Challenges</a>, however, the final level implemented was a simplified version of the original level design and only involved the first level - a typical level platform, with only a touch of flare at the end in the form of a storage room, where the PC has to climb a mountain of office furniture.
 
-
-**ADD GIF OF THE PHOTOCOPY ROOM**
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/photocopy-room.gif" alt="Photocopy Room Playthrough">
+</figure>
+<p style="text-align: center;"><i>Photocopy Room Playthrough.</i></p>
 
 ***
-
 
 <h1 id="Challenges">Challenges</h1>
 
@@ -123,6 +138,8 @@ Partnering up with a team of strangers online came with its risks. One of them b
 
 <h1 id="FutureWork">Future Work</h1>
 
-1) I would love to expand the Story further, as per my initial Story plans and deliver a compelling narrative. 
-2) This would also mean improving and expanding the level design with a focus on the level complexity reflecting the story progression. 
-3) Finally, I would like to create some custom 2D sprites, to tie the art direction of the game to something better suited to the Story. 
+1) I would like to expand the Story further as per my initial Story plans and deliver a compelling narrative. 
+
+2) This would also mean expanding and improving on the level design with a focus on level complexity that would reflect the progression of the story. 
+
+3) Finally, I would like to work on creating custom 2D sprites, to tie the Art with the Story and make the feel of the game more cohesive. 

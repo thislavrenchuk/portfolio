@@ -25,13 +25,23 @@ comments: false
                 <li><a href="#CombatMechanic">Combat Mechanic Design</a></li>
             </ul>
         </li>
+        <li><a href="#Technical">Technical Implementation</a>
+            <ul>
+                <li><a href="#ArrowsMelee">Arrows as melee weapons</a></li>
+                <li><a href="#ZoomIn">Zoom functionality for long-range attacks</a></li>
+            </ul>
+        </li>
         <li><a href="#Story">Story</a></li>
         <li><a href="#ArtAndDesign">Art & Design</a></li>
             <ul>
                 <li><a href="#Inspiration">Inspiration</a></li>
             </ul>
         <li><a href="#3Cs">The 3Cs</a></li>
-        <li><a href="#EnemyDesign">Enemy Design</a></li>
+        <li><a href="#EnemyDesign">Enemy Design</a>
+            <ul>
+                <li><a href="#EnemyImplementation">Enemy Implementation</a></li>
+            </ul>
+        </li>
         <li><a href="#LevelDesign">Level Design</a></li>
         <li><a href="#Challenges">Challenges</a></li>
         <li><a href="#FutureWork">Future Work</a></li>
@@ -60,6 +70,138 @@ With these questions in mind I set out to work on this project. My goal was to e
 1. The player should have the ability to pick up stashes of arrows and bow separately as found within the level. 
 2. When the player picks up arrows but does not yet possess the bow item, or if the bow has "broken", the player should use the arrows as they would a shiv or dagger. 
 3. Similarly, if the player possesses a bow but has used up all their arrows or hasn't found any in the first place, they would use the available bow as a bat, whipping it at their enemy. 
+
+***
+
+<h1 id="Technical">Technical Implementation</h1>
+
+<h3 id="CombatMechanicImplementation">Combat Mechanic Implementation</h3>
+
+<h4 id="ArrowsMelee">1. Arrows as melee weapons</h4>
+
+I was able to implement a stab functionality using arrows through the use of Trigger Boxes and `AnimNotify`. A `TriggerBox` has been added around every enemy that is small enough that the Player Character has to be very close to the enemy to be able to use the Stab mechanic. 
+
+If the Player Character is within the trigger box and is therefore "within range", upon triggering the Stab mechanic, the appropriate `AnimMontage` runs, and with the help of a custom `AnimNotify`, the damage is dealt at the moment the arrow stab is performed. Note: damage is dealt only if the line trace of the arrow's `SkeletalMeshComponent` hits another Actor. 
+
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" alt="Using arrows in melee combat">
+</figure>
+<p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
+
+<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
+
+```
+
+void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
+{
+    // while animation is playing check if damage has been dealt
+    FVector ArrowTipLocation = MeshComp->GetSocketLocation("ArrowTip");
+    FVector ArrowBaseLocation = MeshComp->GetSocketLocation("ArrowEnd");
+    FVector DamageAngle = (ArrowBaseLocation - ArrowTipLocation);
+
+    // Ignore certain actors
+    FCollisionQueryParams Params;
+    Params.AddIgnoredActor(MeshComp->GetOwner());
+
+    // Create a line trace
+    FHitResult HitResult;
+    bool bSuccess = GetWorld()->LineTraceSingleByChannel(HitResult, ArrowTipLocation, ArrowBaseLocation, ECollisionChannel::ECC_GameTraceChannel1, Params);
+    
+    if (bSuccess) 
+    {
+        AActor* HitActor = HitResult.GetActor();
+        if (HitActor != nullptr) 
+        {
+            FPointDamageEvent DamageEvent(StabDamage, HitResult, DamageAngle, nullptr);
+            HitActor->TakeDamage(StabDamage, DamageEvent, MeshComp->GetOwner()->GetInstigatorController(), MeshComp->GetOwner());
+        }
+    }
+
+}
+```
+
+<h4 id="ZoomIn">2. Zoom functionality for long-range attacks</h4>
+
+To add a smooth transition from an "idle" camera position to a zoomed-in camera position when a Player is triggering the Zoom (e.g. to aim an arrow), I implemented a `TimelineCurve` as seen in tutorials online (e.g. <a href="https://nerivec.github.io/old-ue4-wiki/pages/timeline-in-c.html">Timeline in C++</a>). The result was a smooth transition to and fro the zoomed-in & zoomed-out camera positions that also allowed for interruptions. If the Player triggered the zoom-in functionality during the zoom-out transition (i.e. from zoomed-in to zoomed-out camera position) or vice versa, the transition remains smooth and does not distract from the gameplay. 
+
+Having a zoom-in functionality was important to allow for easier aiming at targets at long-range, but also to bring the Player "closer to the combat" and make them connect to the action more effectively.
+
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/Zoom-in-functionality.gif" alt="Zoom In functionality in long-range combat">
+</figure>
+<p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
+
+<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
+
+```
+// Set Timeline Curve
+ABaseCharacter::ABaseCharacter()
+{
+    auto XCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/Script/Engine.CurveFloat'/Game/Data/C_AimZoom_X.C_AimZoom_X'"));
+    if (XCurve.Object)
+    {
+        XFloatCurve = XCurve.Object;
+    }
+    auto YCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/Script/Engine.CurveFloat'/Game/Data/C_AimZoom_Y.C_AimZoom_Y'"));
+    if (YCurve.Object)
+    {
+        YFloatCurve = YCurve.Object;
+    }
+    auto ZCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/Script/Engine.CurveFloat'/Game/Data/C_AimZoom_Z.C_AimZoom_Z'"));
+    if (ZCurve.Object)
+    {
+        ZFloatCurve = ZCurve.Object;
+    }
+    ...
+}
+
+// Set up Timeline Component
+void ABaseCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+    FOnTimelineFloat onTimelineCallback;
+    FOnTimelineEventStatic onTimelineFinishedCallback;
+        
+    if (XFloatCurve != NULL && YFloatCurve != NULL)
+    {
+        auto Timeline = NewObject<UTimelineComponent>(this, FName("TimelineAnimation"), EObjectFlags::RF_NoFlags, nullptr, false, nullptr);
+        MyTimeline = Timeline;
+
+        MyTimeline->CreationMethod = EComponentCreationMethod::UserConstructionScript; 
+        this->BlueprintCreatedComponents.Add(MyTimeline); // Add to array so it gets saved
+        MyTimeline->SetNetAddressable(); 
+        MyTimeline->SetPropertySetObject(this);
+        MyTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
+        MyTimeline->SetLooping(false);
+        MyTimeline->SetTimelineLength(1.0f);
+        MyTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_TimelineLength); 
+        MyTimeline->SetPlaybackPosition(0.0f, false);
+
+        // Add the float curve to the timeline and connect it to the timelines's interpolation function
+        onTimelineCallback.BindUFunction(this, FName{TEXT("TimelineCallback")}); // See function below
+        onTimelineFinishedCallback.BindUFunction(this, FName{TEXT("TimelineFinishedCallback")});
+        MyTimeline->AddInterpFloat(XFloatCurve, onTimelineCallback, FName{TEXT("XZoom-PropertyName")}, FName{TEXT("XZoom-TrackName")});
+        
+        MyTimeline->SetTimelineFinishedFunc(onTimelineFinishedCallback);
+
+        MyTimeline->RegisterComponent();
+    }
+    ...
+}
+
+// This function is called for every tick in the timeline.
+void ABaseCharacter::TimelineCallback(float interpolatedVal)
+{
+    float position = MyTimeline->GetPlaybackPosition();
+    if (SpringArmComponent != nullptr)
+    {
+        SpringArmComponent->SocketOffset.X = XFloatCurve->GetFloatValue(position);
+        SpringArmComponent->SocketOffset.Y = YFloatCurve->GetFloatValue(position);
+        SpringArmComponent->SocketOffset.Z = ZFloatCurve->GetFloatValue(position);
+    }
+}
+
+```
 
 ***
 
@@ -129,22 +271,148 @@ The controls were to be intuitive and centred around the basic TPS standard with
 
 Enemy Characters (EC) were a key part of the story narrative and had to provide a significant threat to the Player Character on their way into the house. The ECs were to be varied, and pose different levels of threat. As the PC moved through the game, the EC would become more difficult, and encourage the PC to seek out weapons or items to help them through the level (as prompted by the inner monologue of the PC).
 
+> [!NOTE]
+> The models chosen for the ECs has a pop of orange colour to signify danger, and would be identifiable within the general greyscale colour palette.
+
 The 3 Enemy tiers I came up with were as follows:
-1. "Point and Shoot" - a basic *introductory* enemy encountered at the beginning of the level to get the Player accustomed to the combat controls. Straightforward and quick to kill on the off chance that the PC only had a limited number of weapons (or none at all).
-2. "Tank-O" - this enemy would be difficult to eliminate, with plenty of health, but weak on damage. These would be positioned at "gateways" to other parts of the level, e.g. the staircase leading to the next floor, or doorways to important rooms. 
-3. "Multiplier" - the most dangerous EC due to the tendency to multiply. The gas canisters positioned by their shoulders - used as a defense mechanism - when pierced cause hallucinations and cause clones to appear. They are easy to kill but are best dealt with at long range and require good aim (encouraging skill from the Player).
+
+<h4>1. "Point and Shoot"</h4> 
+A basic *introductory* enemy encountered at the beginning of the level to get the Player accustomed to the combat controls. Straightforward and quick to kill on the off chance that the PC only had a limited number of weapons (or none at all).
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_EnemyDesign.png" alt="Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/PointAndShoot.png" alt="Lower-level Enemy Design">
 </figure>
-<p style="text-align: center;"><i>Original Enemy Character design</i></p>
+<p style="text-align: center;"><i>Lower-level Enemy design</i></p>
 
-The models chosen for the ECs has a pop of orange colour to signify danger, and would be identifiable within the general greyscale colour palette.
+<h4>2. "Tank-O"</h4> 
+This enemy would be difficult to eliminate, with plenty of health, but weak on damage. These would be positioned at "gateways" to other parts of the level, e.g. the staircase leading to the next floor, or doorways to important rooms. 
+
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/Tank-O.png" alt="Tank Enemy Design">
+</figure>
+<p style="text-align: center;"><i>Tank Enemy design</i></p>
+
+<h4>3. "Multiplier"</h4> 
+The most dangerous EC due to the tendency to multiply. The gas canisters positioned by their shoulders - used as a defense mechanism - when pierced cause hallucinations and cause clones to appear. They are easy to kill but are best dealt with at long range and require good aim (encouraging skill from the Player).
+
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/Multiplier.png" alt="High-level Enemy Design">
+</figure>
+<p style="text-align: center;"><i>High-level Enemy design</i></p>
 
 <figure>
     <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" alt="Multiplier Functionality Test">
 </figure>
 <p style="text-align: center;"><i>Multiplier "cloning" functionality test.</i></p>
+
+<h3 id="EnemyImplementation">Enemy Implementation</h3>
+
+The implementation of the Point-And-Shoot and Tank-O Enemy Characters was a simple matter of inheriting the `BaseEnemy` class and adjusting the amount of `Health`, the `Damage` the Enemy could deal and setting up the appropriate mesh and animation.
+
+The implementation of the Multiplier Enemy, however, was more elaborate and required custom code. 
+
+The Multiplier Enemy inherits the `BaseEnemy` functionality but is spawned with two additional `StaticMeshes` (<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp">Bubble.cpp</a>) that represent the gas cannisters that cause the hallucinations resulting in what the Player Character sees as "cloning". 
+
+Upon being damaged, the "canister" kicks off the `Multiply()` function and disappears. 
+
+<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L75-L95">*Bubble.cpp*</a>
+
+```
+
+float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
+{
+	float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+
+	// When an arrow hits the Bubble, it should (1) spawn another Multiplier enemy AND (2) burst/die
+	
+	// 1. Spawn Multiplier upon being hit
+	Multiply();
+
+	// 2. Switch off capsule collision
+	StaticMeshComponent->SetCollisionProfileName(TEXT("OverlapAll"));
+	this->SetActorEnableCollision(false);
+	// 3. Disappear
+	StaticMeshComponent->SetVisibility(false);
+
+	return DamageToApply;
+}
+```
+
+The `Multiply()` function is responsible for spawning a new Enemy (i.e. a clone) in a location that is visible to the Player and does not overlap with either the Player or the other Enemies. 
+
+<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L112-L160">*Bubble.cpp*</a>
+
+```
+void ABubble::Multiply()
+{
+	// Spawn a new Multiplier somewhere nearby
+    FNavLocation SpawnLocation;
+	UNavigationSystemV1* NavigationSystem = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+	FVector OriginalEnemyLocation = GetActorLocation();
+    APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+	if (!NavigationSystem)
+	{
+		return;
+	}
+	
+    bool bFoundGoodSpot = false;
+    bool bSuccessfullyGenerated = false;
+	bool bSpawnLocationInFrontOfPlayer = false;
+	bool bNoOverlapWithOriginalEnemy = false;
+	bool bNoOverlapWithPlayer = false;
+	
+	do
+	{
+		bSuccessfullyGenerated = NavigationSystem->GetRandomReachablePointInRadius(OriginalEnemyLocation, 500.0f, SpawnLocation);
+    	// Check that it's visible to player
+		bFoundGoodSpot = CheckSpawnLocationLineTraceToPlayer(SpawnLocation.Location);
+		// Check that it's in front of the player
+		bSpawnLocationInFrontOfPlayer = CheckSpawnInFrontOfPlayer(SpawnLocation.Location);
+		// Check that it's not overlapping with original enemy 
+		double DistanceBwOriginalEnemyAndTwin = (OriginalEnemyLocation - SpawnLocation.Location).SizeSquared();
+		bNoOverlapWithOriginalEnemy = labs(DistanceBwOriginalEnemyAndTwin) >= 100000;
+		// Check that it's not overlapping with player 
+		double DistanceBwPlayerAndTwin = (PlayerPawn->GetActorLocation() - SpawnLocation.Location).SizeSquared();
+		bNoOverlapWithPlayer = labs(DistanceBwPlayerAndTwin) >= 100000;
+	} while (!bFoundGoodSpot || !bSuccessfullyGenerated || !bSpawnLocationInFrontOfPlayer || !bNoOverlapWithPlayer || !bNoOverlapWithOriginalEnemy);
+
+	// If successful, spawn new enemy
+	FActorSpawnParameters EnemySpawnParameters;
+	EnemySpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	EnemySpawnParameters.bNoFail = true;
+	// Spawn an actor that will fall in an arch to where a new Enemy will spawn	
+	AActor* Sphere = GetWorld()->SpawnActor<AActor>(this->GetActorLocation(), this->GetActorRotation(), EnemySpawnParameters);
+	if (ParticleEffect)
+	{
+		UGameplayStatics::SpawnEmitterAttached(ParticleEffect, Sphere->GetRootComponent(), NAME_None, Sphere->GetActorLocation(), Sphere->GetActorRotation(), EAttachLocation::SnapToTarget, false, EPSCPoolMethod::AutoRelease);
+		FVector NewVector = FMath::VInterpTo(Sphere->GetActorLocation(), SpawnLocation.Location, ParticleDeltaTime, ParticleInterpSpeed);
+		Sphere->Destroy();
+	}
+
+	// Spawn Enemy
+	ABaseMultiplierEnemy* MyTwin = GetWorld()->SpawnActor<ABaseMultiplierEnemy>(MultiplierClass, SpawnLocation.Location, GetOwner()->GetActorRotation(), EnemySpawnParameters);
+    }
+```
+
+The functionality responsible for spawning the new "clone" in a location visible to the player took multiple iterations to get right. In the end, the dot product worked best, as shown in the code snippet below.
+
+<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L97-L110">*Bubble.cpp*</a>
+```
+bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)
+{
+	// First vector is the player forward vector
+	APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+	FVector FirstVector = PlayerPawn->GetActorForwardVector();
+	// Second vector is the direction vector from player to target enemy location
+	FVector SecondVector = SpawnLocation - PlayerPawn->GetActorLocation();
+	SecondVector.Normalize();
+	// Workout the dot product
+	double DotProduct = FVector::DotProduct(FirstVector, SecondVector);
+	// DotProduct >= 0 if the enemy is in front of player
+	// and DotProduct < 0 if the enemy is behind the player
+	return DotProduct >= 0;
+}
+```
 
 ***
 
@@ -186,6 +454,7 @@ Although the migration process is fairly straightforward, there are hidden chall
 
 While working on the project Unreal had released a much improved feature for Retargeting Animations, however due to being very new, there were very few online resources to help with debugging. Ideally I would like to learn more about Rigging Skeletons to better understand the problems around animation. 
 
+***
 
 <h1 id="FutureWork">Future Work</h1>
 

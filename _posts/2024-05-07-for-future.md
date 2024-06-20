@@ -89,9 +89,7 @@ If the Player Character is within the trigger box and is therefore "within range
 <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
-
 ```
-
 void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
 {
     // while animation is playing check if damage has been dealt
@@ -127,12 +125,11 @@ To add a smooth transition from an "idle" camera position to a zoomed-in camera 
 Having a zoom-in functionality was important to allow for easier aiming at targets at long-range, but also to bring the Player "closer to the combat" and make them connect to the action more effectively.
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Zoom-in-functionality.gif" alt="Zoom In functionality in long-range combat">
+    <img src="{{ site.baseurl }}/assets/images/Zoom-In-functionality.gif" alt="Zoom In functionality in long-range combat">
 </figure>
 <p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
-
 ```
 // Set Timeline Curve
 ABaseCharacter::ABaseCharacter()
@@ -200,7 +197,6 @@ void ABaseCharacter::TimelineCallback(float interpolatedVal)
         SpringArmComponent->SocketOffset.Z = ZFloatCurve->GetFloatValue(position);
     }
 }
-
 ```
 
 ***
@@ -280,7 +276,7 @@ The 3 Enemy tiers I came up with were as follows:
 A basic *introductory* enemy encountered at the beginning of the level to get the Player accustomed to the combat controls. Straightforward and quick to kill on the off chance that the PC only had a limited number of weapons (or none at all).
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/PointAndShoot.png" alt="Lower-level Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/PointAndShoot.png" width="300" alt="Lower-level Enemy Design">
 </figure>
 <p style="text-align: center;"><i>Lower-level Enemy design</i></p>
 
@@ -288,7 +284,7 @@ A basic *introductory* enemy encountered at the beginning of the level to get th
 This enemy would be difficult to eliminate, with plenty of health, but weak on damage. These would be positioned at "gateways" to other parts of the level, e.g. the staircase leading to the next floor, or doorways to important rooms. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Tank-O.png" alt="Tank Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/Tank-O.png" width="300" alt="Tank Enemy Design">
 </figure>
 <p style="text-align: center;"><i>Tank Enemy design</i></p>
 
@@ -296,14 +292,9 @@ This enemy would be difficult to eliminate, with plenty of health, but weak on d
 The most dangerous EC due to the tendency to multiply. The gas canisters positioned by their shoulders - used as a defense mechanism - when pierced cause hallucinations and cause clones to appear. They are easy to kill but are best dealt with at long range and require good aim (encouraging skill from the Player).
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Multiplier.png" alt="High-level Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/Multiplier.png" width="300" alt="High-level Enemy Design">
 </figure>
 <p style="text-align: center;"><i>High-level Enemy design</i></p>
-
-<figure>
-    <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" alt="Multiplier Functionality Test">
-</figure>
-<p style="text-align: center;"><i>Multiplier "cloning" functionality test.</i></p>
 
 <h3 id="EnemyImplementation">Enemy Implementation</h3>
 
@@ -311,14 +302,17 @@ The implementation of the Point-And-Shoot and Tank-O Enemy Characters was a simp
 
 The implementation of the Multiplier Enemy, however, was more elaborate and required custom code. 
 
+<figure>
+    <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" alt="Multiplier Functionality">
+</figure>
+<p style="text-align: center;"><i>Multiplier "cloning" Functionality.</i></p>
+
 The Multiplier Enemy inherits the `BaseEnemy` functionality but is spawned with two additional `StaticMeshes` (<a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp">Bubble.cpp</a>) that represent the gas cannisters that cause the hallucinations resulting in what the Player Character sees as "cloning". 
 
 Upon being damaged, the "canister" kicks off the `Multiply()` function and disappears. 
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L75-L95">*Bubble.cpp*</a>
-
 ```
-
 float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
 {
 	float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
@@ -341,7 +335,6 @@ float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageE
 The `Multiply()` function is responsible for spawning a new Enemy (i.e. a clone) in a location that is visible to the Player and does not overlap with either the Player or the other Enemies. 
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L112-L160">*Bubble.cpp*</a>
-
 ```
 void ABubble::Multiply()
 {
@@ -453,6 +446,7 @@ Although the migration process is fairly straightforward, there are hidden chall
 <h4>2. Retargeting animations</h4>
 
 While working on the project Unreal had released a much improved feature for Retargeting Animations, however due to being very new, there were very few online resources to help with debugging. Ideally I would like to learn more about Rigging Skeletons to better understand the problems around animation. 
+
 
 ***
 

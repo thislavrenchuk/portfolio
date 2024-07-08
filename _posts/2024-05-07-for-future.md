@@ -89,7 +89,7 @@ If the Player Character is within the trigger box and is therefore "within range
 <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
-<div class="content">
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
@@ -134,23 +134,23 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
 <p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
-<div class="content">
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 // Set Timeline Curve
 ABaseCharacter::ABaseCharacter()
 {
-    auto XCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/Script/Engine.CurveFloat'/Game/Data/C_AimZoom_X.C_AimZoom_X'"));
+    auto XCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/.../C_AimZoom_X.C_AimZoom_X'"));
     if (XCurve.Object)
     {
         XFloatCurve = XCurve.Object;
     }
-    auto YCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/Script/Engine.CurveFloat'/Game/Data/C_AimZoom_Y.C_AimZoom_Y'"));
+    auto YCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/.../C_AimZoom_Y.C_AimZoom_Y'"));
     if (YCurve.Object)
     {
         YFloatCurve = YCurve.Object;
     }
-    auto ZCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/Script/Engine.CurveFloat'/Game/Data/C_AimZoom_Z.C_AimZoom_Z'"));
+    auto ZCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/.../C_AimZoom_Z.C_AimZoom_Z'"));
     if (ZCurve.Object)
     {
         ZFloatCurve = ZCurve.Object;
@@ -160,7 +160,8 @@ ABaseCharacter::ABaseCharacter()
         </code>
     </pre>
 </div>
-<div class="content">
+
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 // Set up Timeline Component
@@ -199,7 +200,8 @@ void ABaseCharacter::BeginPlay()
         </code>
     </pre>
 </div>
-<div class="content">
+
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 // This function is called for every tick in the timeline.
@@ -332,7 +334,7 @@ Upon being damaged, the "canister" kicks off the `Multiply()` function and disap
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L75-L95">*Bubble.cpp*</a>
 
-<div class="content">
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
@@ -359,7 +361,7 @@ float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageE
 The `Multiply()` function is responsible for spawning a new Enemy (i.e. a clone) in a location that is visible to the Player and does not overlap with either the Player or the other Enemies. 
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L112-L160">*Bubble.cpp*</a>
-<div class="content">
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 void ABubble::Multiply()
@@ -418,7 +420,7 @@ void ABubble::Multiply()
 The functionality responsible for spawning the new "clone" in a location visible to the player took multiple iterations to get right. In the end, the dot product worked best, as shown in the code snippet below.
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L97-L110">*Bubble.cpp*</a>
-<div class="content">
+<div>
     <pre style="height: 500px; overflow: scroll;">
         <code>
 bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)

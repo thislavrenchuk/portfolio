@@ -89,34 +89,39 @@ If the Player Character is within the trigger box and is therefore "within range
 <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
-```
-void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
-{
-    // while animation is playing check if damage has been dealt
-    FVector ArrowTipLocation = MeshComp->GetSocketLocation("ArrowTip");
-    FVector ArrowBaseLocation = MeshComp->GetSocketLocation("ArrowEnd");
-    FVector DamageAngle = (ArrowBaseLocation - ArrowTipLocation);
+<button type="button" class="collapsible">Code Snippet</button>
+<div class="content">
+    <pre class="line-numbers">
+        <code class="language-scala">
+            void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
+            {
+                // while animation is playing check if damage has been dealt
+                FVector ArrowTipLocation = MeshComp->GetSocketLocation("ArrowTip");
+                FVector ArrowBaseLocation = MeshComp->GetSocketLocation("ArrowEnd");
+                FVector DamageAngle = (ArrowBaseLocation - ArrowTipLocation);
 
-    // Ignore certain actors
-    FCollisionQueryParams Params;
-    Params.AddIgnoredActor(MeshComp->GetOwner());
+                // Ignore certain actors
+                FCollisionQueryParams Params;
+                Params.AddIgnoredActor(MeshComp->GetOwner());
 
-    // Create a line trace
-    FHitResult HitResult;
-    bool bSuccess = GetWorld()->LineTraceSingleByChannel(HitResult, ArrowTipLocation, ArrowBaseLocation, ECollisionChannel::ECC_GameTraceChannel1, Params);
-    
-    if (bSuccess) 
-    {
-        AActor* HitActor = HitResult.GetActor();
-        if (HitActor != nullptr) 
-        {
-            FPointDamageEvent DamageEvent(StabDamage, HitResult, DamageAngle, nullptr);
-            HitActor->TakeDamage(StabDamage, DamageEvent, MeshComp->GetOwner()->GetInstigatorController(), MeshComp->GetOwner());
-        }
-    }
+                // Create a line trace
+                FHitResult HitResult;
+                bool bSuccess = GetWorld()->LineTraceSingleByChannel(HitResult, ArrowTipLocation, ArrowBaseLocation, ECollisionChannel::ECC_GameTraceChannel1, Params);
+                
+                if (bSuccess) 
+                {
+                    AActor* HitActor = HitResult.GetActor();
+                    if (HitActor != nullptr) 
+                    {
+                        FPointDamageEvent DamageEvent(StabDamage, HitResult, DamageAngle, nullptr);
+                        HitActor->TakeDamage(StabDamage, DamageEvent, MeshComp->GetOwner()->GetInstigatorController(), MeshComp->GetOwner());
+                    }
+                }
+            }
+        </code>
+    </pre>
+</div>
 
-}
-```
 
 <h4 id="ZoomIn">2. Zoom functionality for long-range attacks</h4>
 

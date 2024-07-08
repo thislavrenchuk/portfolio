@@ -75,7 +75,7 @@ I decided the easiest way to do this would be to contain each level as a single 
 
 The quest system would incorporate different variotions of dialogue with the NPCs that depend on the actions the Player has preformed so far.
 
-<h2 id="3Cs">Camera, and Controls</h2>
+<h2 id="3Cs">Camera and Controls</h2>
 
 <h4>Camera</h4>
 

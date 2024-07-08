@@ -136,7 +136,7 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
 <div class="content">
     <pre style="height: 500px; overflow: scroll;">
-        ```
+        <code>
 // Set Timeline Curve
 ABaseCharacter::ABaseCharacter()
 {
@@ -157,7 +157,12 @@ ABaseCharacter::ABaseCharacter()
     }
     ...
 }
-
+        </code>
+    </pre>
+</div>
+<div class="content">
+    <pre style="height: 500px; overflow: scroll;">
+        <code>
 // Set up Timeline Component
 void ABaseCharacter::BeginPlay()
 {
@@ -191,7 +196,12 @@ void ABaseCharacter::BeginPlay()
     }
     ...
 }
-
+        </code>
+    </pre>
+</div>
+<div class="content">
+    <pre style="height: 500px; overflow: scroll;">
+        <code>
 // This function is called for every tick in the timeline.
 void ABaseCharacter::TimelineCallback(float interpolatedVal)
 {
@@ -203,7 +213,7 @@ void ABaseCharacter::TimelineCallback(float interpolatedVal)
         SpringArmComponent->SocketOffset.Z = ZFloatCurve->GetFloatValue(position);
     }
 }
-        ```
+        </code>
     </pre>
 </div>
 
@@ -321,7 +331,10 @@ The Multiplier Enemy inherits the `BaseEnemy` functionality but is spawned with 
 Upon being damaged, the "canister" kicks off the `Multiply()` function and disappears. 
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L75-L95">*Bubble.cpp*</a>
-```
+
+<div class="content">
+    <pre style="height: 500px; overflow: scroll;">
+        <code>
 float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
 {
 	float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
@@ -339,12 +352,16 @@ float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageE
 
 	return DamageToApply;
 }
-```
+        </code>
+    </pre>
+</div>
 
 The `Multiply()` function is responsible for spawning a new Enemy (i.e. a clone) in a location that is visible to the Player and does not overlap with either the Player or the other Enemies. 
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L112-L160">*Bubble.cpp*</a>
-```
+<div class="content">
+    <pre style="height: 500px; overflow: scroll;">
+        <code>
 void ABubble::Multiply()
 {
 	// Spawn a new Multiplier somewhere nearby
@@ -394,12 +411,16 @@ void ABubble::Multiply()
 	// Spawn Enemy
 	ABaseMultiplierEnemy* MyTwin = GetWorld()->SpawnActor<ABaseMultiplierEnemy>(MultiplierClass, SpawnLocation.Location, GetOwner()->GetActorRotation(), EnemySpawnParameters);
     }
-```
+        </code>
+    </pre>
+</div>
 
 The functionality responsible for spawning the new "clone" in a location visible to the player took multiple iterations to get right. In the end, the dot product worked best, as shown in the code snippet below.
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L97-L110">*Bubble.cpp*</a>
-```
+<div class="content">
+    <pre style="height: 500px; overflow: scroll;">
+        <code>
 bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)
 {
 	// First vector is the player forward vector
@@ -414,7 +435,9 @@ bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)
 	// and DotProduct < 0 if the enemy is behind the player
 	return DotProduct >= 0;
 }
-```
+        </code>
+    </pre>
+</div>
 
 ***
 

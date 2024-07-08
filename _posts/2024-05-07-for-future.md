@@ -91,7 +91,7 @@ If the Player Character is within the trigger box and is therefore "within range
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
 <div class="content">
     <pre style="height: 500px; overflow: scroll;">
-        <code class="language-scala">
+        <code>
 void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
 {
     // while animation is playing check if damage has been dealt
@@ -136,7 +136,7 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
 <div class="content">
     <pre style="height: 500px; overflow: scroll;">
-        <code class="language-scala">
+        ```
 // Set Timeline Curve
 ABaseCharacter::ABaseCharacter()
 {
@@ -203,7 +203,7 @@ void ABaseCharacter::TimelineCallback(float interpolatedVal)
         SpringArmComponent->SocketOffset.Z = ZFloatCurve->GetFloatValue(position);
     }
 }
-        </code>
+        ```
     </pre>
 </div>
 

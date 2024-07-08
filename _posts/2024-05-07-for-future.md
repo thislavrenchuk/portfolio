@@ -130,9 +130,8 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
 <p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
-<div>
-    <pre style="height: 500px; overflow: scroll;">
-        <code>
+<pre style="height: 500px; overflow: scroll;">
+    <code>
 // Set Timeline Curve
 ABaseCharacter::ABaseCharacter()
 {
@@ -199,9 +198,8 @@ void ABaseCharacter::TimelineCallback(float interpolatedVal)
         SpringArmComponent->SocketOffset.Z = ZFloatCurve->GetFloatValue(position);
     }
 }
-        </code>
-    </pre>
-</div>
+    </code>
+</pre>
 
 
 ***

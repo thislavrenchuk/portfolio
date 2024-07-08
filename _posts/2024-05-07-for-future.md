@@ -89,9 +89,8 @@ If the Player Character is within the trigger box and is therefore "within range
 <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
-<div>
-    <pre style="height: 500px; overflow: scroll;">
-        <code>
+
+```
 void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
 {
     // while animation is playing check if damage has been dealt
@@ -117,10 +116,7 @@ void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* An
         }
     }
 }
-        </code>
-    </pre>
-</div>
-
+```
 
 <h4 id="ZoomIn">2. Zoom functionality for long-range attacks</h4>
 
@@ -157,13 +153,7 @@ ABaseCharacter::ABaseCharacter()
     }
     ...
 }
-        </code>
-    </pre>
-</div>
 
-<div>
-    <pre style="height: 500px; overflow: scroll;">
-        <code>
 // Set up Timeline Component
 void ABaseCharacter::BeginPlay()
 {
@@ -197,13 +187,7 @@ void ABaseCharacter::BeginPlay()
     }
     ...
 }
-        </code>
-    </pre>
-</div>
-
-<div>
-    <pre style="height: 500px; overflow: scroll;">
-        <code>
+       
 // This function is called for every tick in the timeline.
 void ABaseCharacter::TimelineCallback(float interpolatedVal)
 {
@@ -334,9 +318,7 @@ Upon being damaged, the "canister" kicks off the `Multiply()` function and disap
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L75-L95">*Bubble.cpp*</a>
 
-<div>
-    <pre style="height: 500px; overflow: scroll;">
-        <code>
+```
 float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
 {
 	float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
@@ -354,9 +336,7 @@ float ABubble::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageE
 
 	return DamageToApply;
 }
-        </code>
-    </pre>
-</div>
+```
 
 The `Multiply()` function is responsible for spawning a new Enemy (i.e. a clone) in a location that is visible to the Player and does not overlap with either the Player or the other Enemies. 
 
@@ -412,7 +392,7 @@ void ABubble::Multiply()
 
 	// Spawn Enemy
 	ABaseMultiplierEnemy* MyTwin = GetWorld()->SpawnActor<ABaseMultiplierEnemy>(MultiplierClass, SpawnLocation.Location, GetOwner()->GetActorRotation(), EnemySpawnParameters);
-    }
+}
         </code>
     </pre>
 </div>
@@ -420,9 +400,8 @@ void ABubble::Multiply()
 The functionality responsible for spawning the new "clone" in a location visible to the player took multiple iterations to get right. In the end, the dot product worked best, as shown in the code snippet below.
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Bubble.cpp#L97-L110">*Bubble.cpp*</a>
-<div>
-    <pre style="height: 500px; overflow: scroll;">
-        <code>
+
+```
 bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)
 {
 	// First vector is the player forward vector
@@ -437,9 +416,7 @@ bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)
 	// and DotProduct < 0 if the enemy is behind the player
 	return DotProduct >= 0;
 }
-        </code>
-    </pre>
-</div>
+```
 
 ***
 

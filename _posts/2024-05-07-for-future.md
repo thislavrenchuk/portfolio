@@ -83,7 +83,7 @@ If the Player Character is within the trigger box and is therefore "within range
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" width="500" alt="Using arrows in melee combat">
+        <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" width="800" alt="Using arrows in melee combat">
     </figure>
     <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 </div>
@@ -130,7 +130,7 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Zoom-In-functionality.gif" width="500" class="center" alt="Zoom In functionality in long-range combat">
+        <img src="{{ site.baseurl }}/assets/images/Zoom-In-functionality.gif" width="800" class="center" alt="Zoom In functionality in long-range combat">
     </figure>
     <p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
 </div>
@@ -220,7 +220,7 @@ Due to time constraints, I knew the game would need to be fairly small, a single
 
 <div style="display: grid; place-items: center;">
     <figure class="figure-shadow">
-        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_Story.png" width="500" class="center" alt="Story Notes">
+        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_Story.png" width="800" class="center" alt="Story Notes">
     </figure>
     <p style="text-align: center;"><i>Original story draft.</i></p>
 </div>
@@ -235,7 +235,7 @@ To give the game a *darker* feel, I took inspiration from the Noir Comic style, 
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/archer-art-direction.png" width="500" class="center" alt="Initial Mood Board">
+        <img src="{{ site.baseurl }}/assets/images/archer-art-direction.png" width="800" class="center" alt="Initial Mood Board">
     </figure>
     <p style="text-align: center;"><i>The Original Noir Comic inspiration board.</i></p>
 </div>
@@ -250,7 +250,7 @@ A key addition that I wanted to add to the game, faithful to the source of inspi
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" width="500" class="center" alt="Comic-style speech bubble monologues">
+        <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" width="800" class="center" alt="Comic-style speech bubble monologues">
     </figure>
     <p style="text-align: center;"><i>Comic-style speech bubble monologues.</i></p>
 </div>
@@ -264,7 +264,7 @@ Having limited time for modelling characters I was limited to using freely avail
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_PlayerCharacter.png" width="500" class="center" alt="Player Character Design Notes">
+        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_PlayerCharacter.png" width="800" class="center" alt="Player Character Design Notes">
     </figure>
     <p style="text-align: center;"><i>Original Player Character design</i></p>
 </div>
@@ -275,7 +275,7 @@ The controls were to be intuitive and centred around the basic TPS standard with
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/keyboard_controls.jpg" width="500" class="center" alt="Keyboard Control Diagram">
+        <img src="{{ site.baseurl }}/assets/images/keyboard_controls.jpg" width="800" class="center" alt="Keyboard Control Diagram">
     </figure>
     <p style="text-align: center;"><i>Keyboard controls.</i></p>
 </div>
@@ -329,7 +329,7 @@ The implementation of the Multiplier Enemy, however, was more elaborate and requ
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" width="500" class="center" alt="Multiplier Functionality">
+        <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" width="800" class="center" alt="Multiplier Functionality">
     </figure>
     <p style="text-align: center;"><i>Multiplier "cloning" Functionality.</i></p>
 </div>
@@ -448,13 +448,13 @@ With the above in mind, I envisioned a setting that varied in available space, t
 
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_StoryPoints.png" width="500" class="center" alt="Level Pre-requisites">
+        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_StoryPoints.png" width="600" class="center" alt="Level Pre-requisites">
     </figure>
     <p style="text-align: center;"><i>First Draft Level Pre-requisites</i></p>
 </div>
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" width="500" class="center" alt="First Draft Level Design">
+        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" width="800" class="center" alt="First Draft Level Design">
     </figure>
     <p style="text-align: center;"><i>First Draft Level Design</i></p>
 </div>

@@ -7,8 +7,6 @@ image: assets/images/For_Future_Cover_2.png
 comments: false
 ---
 
-<!-- <iframe style="width:100%;" height="315" src="https://www.youtube.com/embed/Cniqsc9QfDo?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe> -->
-
 **Name**: For Future
 
 **Status**: In-Progress
@@ -84,13 +82,15 @@ I was able to implement a stab functionality using arrows through the use of Tri
 If the Player Character is within the trigger box and is therefore "within range", upon triggering the Stab mechanic, the appropriate `AnimMontage` runs, and with the help of a custom `AnimNotify`, the damage is dealt at the moment the arrow stab is performed. Note: damage is dealt only if the line trace of the arrow's `SkeletalMeshComponent` hits another Actor. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" alt="Using arrows in melee combat">
+    <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" width="500" class="center" alt="Using arrows in melee combat">
 </figure>
 <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
 
-```
+<div>
+    <pre style="height: 500px; overflow: scroll;">
+        <code>
 void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
 {
     // while animation is playing check if damage has been dealt
@@ -116,7 +116,9 @@ void UStabNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* An
         }
     }
 }
-```
+        </code>
+    </pre>
+</div>
 
 <h4 id="ZoomIn">2. Zoom functionality for long-range attacks</h4>
 
@@ -125,7 +127,7 @@ To add a smooth transition from an "idle" camera position to a zoomed-in camera 
 Having a zoom-in functionality was important to allow for easier aiming at targets at long-range, but also to bring the Player "closer to the combat" and make them connect to the action more effectively.
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Zoom-In-functionality.gif" alt="Zoom In functionality in long-range combat">
+    <img src="{{ site.baseurl }}/assets/images/Zoom-In-functionality.gif" width="500" class="center" alt="Zoom In functionality in long-range combat">
 </figure>
 <p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
 
@@ -213,7 +215,7 @@ The goal of the game was to be simple: **secure the life-giving medicine for you
 Due to time constraints, I knew the game would need to be fairly small, a single scene/level at most. How do you make a simple one-level game feel more urgent? You add a timer. 
 
 <figure class="figure-shadow">
-    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_Story.png" alt="Story Notes">
+    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_Story.png" width="500" class="center" alt="Story Notes">
 </figure>
 <p style="text-align: center;"><i>Original story draft.</i></p>
 
@@ -226,7 +228,7 @@ Due to time constraints, I knew the game would need to be fairly small, a single
 To give the game a *darker* feel, I took inspiration from the Noir Comic style, pulling images from various sources to get a better understanding of the different colour scheme options and greyscale.
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/archer-art-direction.png" alt="Initial Mood Board">
+    <img src="{{ site.baseurl }}/assets/images/archer-art-direction.png" width="500" class="center" alt="Initial Mood Board">
 </figure>
 <p style="text-align: center;"><i>The Original Noir Comic inspiration board.</i></p>
 
@@ -239,7 +241,7 @@ The idea for *pops of colour* seen in some images (also reminiscent of games lik
 A key addition that I wanted to add to the game, faithful to the source of inspiration, was to add comic-esque speech bubbles during PC's inner monologue, on top of the voiceover. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" alt="Comic-style speech bubble monologues">
+    <img src="{{ site.baseurl }}/assets/images/speech_bubble_GIF.gif" width="500" class="center" alt="Comic-style speech bubble monologues">
 </figure>
 <p style="text-align: center;"><i>Comic-style speech bubble monologues.</i></p>
 
@@ -251,7 +253,7 @@ A key addition that I wanted to add to the game, faithful to the source of inspi
 Having limited time for modelling characters I was limited to using freely available assets online, but the overall design for the character pivoted on making visible the story's *VIP*, i.e. the baby called Future the Player Character is carrying. This was inspired in part by the Deliveryman Sam from *Death Stranding*.
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_PlayerCharacter.png" alt="Player Character Design Notes">
+    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_PlayerCharacter.png" width="500" class="center" alt="Player Character Design Notes">
 </figure>
 <p style="text-align: center;"><i>Original Player Character design</i></p>
 
@@ -260,7 +262,7 @@ The camera was to be in the third person, as in *Death Stranding* and *The Last 
 The controls were to be intuitive and centred around the basic TPS standard with room for customisations based on test player feedback.
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/keyboard_controls.jpg" alt="Keyboard Control Diagram">
+    <img src="{{ site.baseurl }}/assets/images/keyboard_controls.jpg" width="500" class="center" alt="Keyboard Control Diagram">
 </figure>
 <p style="text-align: center;"><i>Keyboard controls.</i></p>
 
@@ -279,7 +281,7 @@ The 3 Enemy tiers I came up with were as follows:
 A basic *introductory* enemy encountered at the beginning of the level to get the Player accustomed to the combat controls. Straightforward and quick to kill on the off chance that the PC only had a limited number of weapons (or none at all).
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/PointAndShoot.png" width="300" alt="Lower-level Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/PointAndShoot.png" width="500" class="center" alt="Lower-level Enemy Design">
 </figure>
 <p style="text-align: center;"><i>Lower-level Enemy design</i></p>
 
@@ -287,7 +289,7 @@ A basic *introductory* enemy encountered at the beginning of the level to get th
 This enemy would be difficult to eliminate, with plenty of health, but weak on damage. These would be positioned at "gateways" to other parts of the level, e.g. the staircase leading to the next floor, or doorways to important rooms. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Tank-O.png" width="300" alt="Tank Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/Tank-O.png" width="500" class="center" alt="Tank Enemy Design">
 </figure>
 <p style="text-align: center;"><i>Tank Enemy design</i></p>
 
@@ -295,7 +297,7 @@ This enemy would be difficult to eliminate, with plenty of health, but weak on d
 The most dangerous EC due to the tendency to multiply. The gas canisters positioned by their shoulders - used as a defense mechanism - when pierced cause hallucinations and cause clones to appear. They are easy to kill but are best dealt with at long range and require good aim (encouraging skill from the Player).
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Multiplier.png" width="300" alt="High-level Enemy Design">
+    <img src="{{ site.baseurl }}/assets/images/Multiplier.png" width="500" class="center" alt="High-level Enemy Design">
 </figure>
 <p style="text-align: center;"><i>High-level Enemy design</i></p>
 
@@ -306,7 +308,7 @@ The implementation of the Point-And-Shoot and Tank-O Enemy Characters was a simp
 The implementation of the Multiplier Enemy, however, was more elaborate and required custom code. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" alt="Multiplier Functionality">
+    <img src="{{ site.baseurl }}/assets/images/multiplier_GIF.gif" width="500" class="center" alt="Multiplier Functionality">
 </figure>
 <p style="text-align: center;"><i>Multiplier "cloning" Functionality.</i></p>
 
@@ -346,7 +348,7 @@ void ABubble::Multiply()
 {
 	// Spawn a new Multiplier somewhere nearby
     FNavLocation SpawnLocation;
-	UNavigationSystemV1* NavigationSystem = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+	UNavigationSystemV1* NavigationSystem = FNavigationSystem::GetCurrent&lt;UNavigationSystemV1&gt;(GetWorld());
 	FVector OriginalEnemyLocation = GetActorLocation();
     APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
 	if (!NavigationSystem)
@@ -362,17 +364,17 @@ void ABubble::Multiply()
 	
 	do
 	{
-		bSuccessfullyGenerated = NavigationSystem->GetRandomReachablePointInRadius(OriginalEnemyLocation, 500.0f, SpawnLocation);
+		bSuccessfullyGenerated = NavigationSystem-&gt;GetRandomReachablePointInRadius(OriginalEnemyLocation, 500.0f, SpawnLocation);
     	// Check that it's visible to player
 		bFoundGoodSpot = CheckSpawnLocationLineTraceToPlayer(SpawnLocation.Location);
 		// Check that it's in front of the player
 		bSpawnLocationInFrontOfPlayer = CheckSpawnInFrontOfPlayer(SpawnLocation.Location);
 		// Check that it's not overlapping with original enemy 
 		double DistanceBwOriginalEnemyAndTwin = (OriginalEnemyLocation - SpawnLocation.Location).SizeSquared();
-		bNoOverlapWithOriginalEnemy = labs(DistanceBwOriginalEnemyAndTwin) >= 100000;
+		bNoOverlapWithOriginalEnemy = labs(DistanceBwOriginalEnemyAndTwin) &gt;= 100000;
 		// Check that it's not overlapping with player 
-		double DistanceBwPlayerAndTwin = (PlayerPawn->GetActorLocation() - SpawnLocation.Location).SizeSquared();
-		bNoOverlapWithPlayer = labs(DistanceBwPlayerAndTwin) >= 100000;
+		double DistanceBwPlayerAndTwin = (PlayerPawn-&gt;GetActorLocation() - SpawnLocation.Location).SizeSquared();
+		bNoOverlapWithPlayer = labs(DistanceBwPlayerAndTwin) &gt;= 100000;
 	} while (!bFoundGoodSpot || !bSuccessfullyGenerated || !bSpawnLocationInFrontOfPlayer || !bNoOverlapWithPlayer || !bNoOverlapWithOriginalEnemy);
 
 	// If successful, spawn new enemy
@@ -380,16 +382,16 @@ void ABubble::Multiply()
 	EnemySpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 	EnemySpawnParameters.bNoFail = true;
 	// Spawn an actor that will fall in an arch to where a new Enemy will spawn	
-	AActor* Sphere = GetWorld()->SpawnActor<AActor>(this->GetActorLocation(), this->GetActorRotation(), EnemySpawnParameters);
+	AActor* Sphere = GetWorld()-&gt;SpawnActor&lt;AActor&gt;(this-&gt;GetActorLocation(), this-&gt;GetActorRotation(), EnemySpawnParameters);
 	if (ParticleEffect)
 	{
-		UGameplayStatics::SpawnEmitterAttached(ParticleEffect, Sphere->GetRootComponent(), NAME_None, Sphere->GetActorLocation(), Sphere->GetActorRotation(), EAttachLocation::SnapToTarget, false, EPSCPoolMethod::AutoRelease);
-		FVector NewVector = FMath::VInterpTo(Sphere->GetActorLocation(), SpawnLocation.Location, ParticleDeltaTime, ParticleInterpSpeed);
-		Sphere->Destroy();
+		UGameplayStatics::SpawnEmitterAttached(ParticleEffect, Sphere-&gt;GetRootComponent(), NAME_None, Sphere-&gt;GetActorLocation(), Sphere->GetActorRotation(), EAttachLocation::SnapToTarget, false, EPSCPoolMethod::AutoRelease);
+		FVector NewVector = FMath::VInterpTo(Sphere-&gt;GetActorLocation(), SpawnLocation.Location, ParticleDeltaTime, ParticleInterpSpeed);
+		Sphere-&gt;Destroy();
 	}
 
 	// Spawn Enemy
-	ABaseMultiplierEnemy* MyTwin = GetWorld()->SpawnActor<ABaseMultiplierEnemy>(MultiplierClass, SpawnLocation.Location, GetOwner()->GetActorRotation(), EnemySpawnParameters);
+	ABaseMultiplierEnemy* MyTwin = GetWorld()-&gt;SpawnActor&lt;ABaseMultiplierEnemy&gt;(MultiplierClass, SpawnLocation.Location, GetOwner()-&gt;GetActorRotation(), EnemySpawnParameters);
 }
         </code>
     </pre>
@@ -423,12 +425,12 @@ bool ABubble::CheckSpawnInFrontOfPlayer(FVector SpawnLocation)
 With the above in mind, I envisioned a setting that varied in available space, to allow for both long-range and close-quarters combat in which the player would have the opportunity to use the varied melee attacks. A house, through which they can discreetly make their way, get rid of enemies, to ultimately reach the top floor where the goal of the game lies. 
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_StoryPoints.png" width="500" alt="Level Pre-requisites">
+    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_StoryPoints.png" width="500" class="center" alt="Level Pre-requisites">
 </figure>
 <p style="text-align: center;"><i>First Draft Level Pre-requisites</i></p>
 
 <figure>
-    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" alt="First Draft Level Design">
+    <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" width="500" class="center" alt="First Draft Level Design">
 </figure>
 <p style="text-align: center;"><i>First Draft Level Design</i></p>
 

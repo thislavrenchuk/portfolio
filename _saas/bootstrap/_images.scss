@@ -22,6 +22,15 @@
   @include img-fluid;
 }
 
+img {
+  transition:transform 0.25s ease;
+}
+
+img:hover {
+  -webkit-transform:scale(1.5);
+  transform:scale(1.5);
+}
+
 //
 // Figures
 //
@@ -39,4 +48,12 @@
 .figure-caption {
   font-size: $figure-caption-font-size;
   color: $figure-caption-color;
+}
+
+// Center an image
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

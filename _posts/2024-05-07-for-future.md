@@ -130,27 +130,27 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
 <p style="text-align: center;"><i>Zoom In functionality in long-range combat.</i></p>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/Characters/BaseCharacter.cpp">*BaseCharacter.cpp*</a>
-
-```
+<div>
+    <code>
         // Set Timeline Curve
         ABaseCharacter::ABaseCharacter()
         {
-            auto XCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/.../C_AimZoom_X.C_AimZoom_X'"));
+            auto XCurve = ConstructorHelpers::FObjectFinder&lt;UCurveFloat&gt;(TEXT(&quot;/.../C_AimZoom_X.C_AimZoom_X&apos;&quot;));
             if (XCurve.Object)
             {
                 XFloatCurve = XCurve.Object;
             }
-            auto YCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/.../C_AimZoom_Y.C_AimZoom_Y'"));
+            auto YCurve = ConstructorHelpers::FObjectFinder&lt;UCurveFloat&gt;(TEXT(&quot;/.../C_AimZoom_Y.C_AimZoom_Y&apos;&quot;));
             if (YCurve.Object)
             {
                 YFloatCurve = YCurve.Object;
             }
-            auto ZCurve = ConstructorHelpers::FObjectFinder<UCurveFloat>(TEXT("/.../C_AimZoom_Z.C_AimZoom_Z'"));
+            auto ZCurve = ConstructorHelpers::FObjectFinder&lt;UCurveFloat&gt;(TEXT(&quot;/.../C_AimZoom_Z.C_AimZoom_Z&apos;&quot;));
             if (ZCurve.Object)
             {
                 ZFloatCurve = ZCurve.Object;
             }
-            ...
+            // ...
         }
 
         // Set up Timeline Component
@@ -159,46 +159,46 @@ Having a zoom-in functionality was important to allow for easier aiming at targe
             Super::BeginPlay();
             FOnTimelineFloat onTimelineCallback;
             FOnTimelineEventStatic onTimelineFinishedCallback;
-                
-            if (XFloatCurve != NULL && YFloatCurve != NULL)
+
+            if (XFloatCurve != NULL &amp;&amp; YFloatCurve != NULL)
             {
-                auto Timeline = NewObject<UTimelineComponent>(this, FName("TimelineAnimation"), EObjectFlags::RF_NoFlags, nullptr, false, nullptr);
+                auto Timeline = NewObject&lt;UTimelineComponent&gt;(this, FName(&quot;TimelineAnimation&quot;), EObjectFlags::RF_NoFlags, nullptr, false, nullptr);
                 MyTimeline = Timeline;
 
-                MyTimeline->CreationMethod = EComponentCreationMethod::UserConstructionScript; 
-                this->BlueprintCreatedComponents.Add(MyTimeline); // Add to array so it gets saved
-                MyTimeline->SetNetAddressable(); 
-                MyTimeline->SetPropertySetObject(this);
-                MyTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
-                MyTimeline->SetLooping(false);
-                MyTimeline->SetTimelineLength(1.0f);
-                MyTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_TimelineLength); 
-                MyTimeline->SetPlaybackPosition(0.0f, false);
+                MyTimeline-&gt;CreationMethod = EComponentCreationMethod::UserConstructionScript; 
+                this-&gt;BlueprintCreatedComponents.Add(MyTimeline); // Add to array so it gets saved
+                MyTimeline-&gt;SetNetAddressable(); 
+                MyTimeline-&gt;SetPropertySetObject(this);
+                MyTimeline-&gt;SetDirectionPropertyName(FName(&quot;TimelineDirection&quot;));
+                MyTimeline-&gt;SetLooping(false);
+                MyTimeline-&gt;SetTimelineLength(1.0f);
+                MyTimeline-&gt;SetTimelineLengthMode(ETimelineLengthMode::TL_TimelineLength); 
+                MyTimeline-&gt;SetPlaybackPosition(0.0f, false);
 
-                // Add the float curve to the timeline and connect it to the timelines's interpolation function
-                onTimelineCallback.BindUFunction(this, FName{TEXT("TimelineCallback")}); // See function below
-                onTimelineFinishedCallback.BindUFunction(this, FName{TEXT("TimelineFinishedCallback")});
-                MyTimeline->AddInterpFloat(XFloatCurve, onTimelineCallback, FName{TEXT("XZoom-PropertyName")}, FName{TEXT("XZoom-TrackName")});
+                // Add the float curve to the timeline and connect it to the timelines&apos;s interpolation function
+                onTimelineCallback.BindUFunction(this, FName{TEXT(&quot;TimelineCallback&quot;)}); // See function below
+                onTimelineFinishedCallback.BindUFunction(this, FName{TEXT(&quot;TimelineFinishedCallback&quot;)});
                 
-                MyTimeline->SetTimelineFinishedFunc(onTimelineFinishedCallback);
-
-                MyTimeline->RegisterComponent();
+                MyTimeline-&gt;AddInterpFloat(XFloatCurve, onTimelineCallback, FName{TEXT(&quot;XZoom-PropertyName&quot;)}, FName{TEXT(&quot;XZoom-TrackName&quot;)});
+                MyTimeline-&gt;SetTimelineFinishedFunc(onTimelineFinishedCallback);
+                MyTimeline-&gt;RegisterComponent();
             }
-            ...
-        }
-            
+        ...
+        }      
+
         // This function is called for every tick in the timeline.
         void ABaseCharacter::TimelineCallback(float interpolatedVal)
         {
-            float position = MyTimeline->GetPlaybackPosition();
+            float position = MyTimeline-&gt;GetPlaybackPosition();
             if (SpringArmComponent != nullptr)
             {
-                SpringArmComponent->SocketOffset.X = XFloatCurve->GetFloatValue(position);
-                SpringArmComponent->SocketOffset.Y = YFloatCurve->GetFloatValue(position);
-                SpringArmComponent->SocketOffset.Z = ZFloatCurve->GetFloatValue(position);
+                SpringArmComponent-&gt;SocketOffset.X = XFloatCurve-&gt;GetFloatValue(position);
+                SpringArmComponent-&gt;SocketOffset.Y = YFloatCurve-&gt;GetFloatValue(position);
+                SpringArmComponent-&gt;SocketOffset.Z = ZFloatCurve-&gt;GetFloatValue(position);
             }
         }
-```
+    </code>
+</div>
 
 ***
 

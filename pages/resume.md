@@ -13,7 +13,7 @@ Find my Resume attached below.
 <object
     type="application/pdf"
     data="{{ site.baseurl }}/assets/images/Technical_Game_Designer_CV.pdf#zoom=scale"
-    width="700px"
+    width="1000px"
     height="900px"
 >
 </object>

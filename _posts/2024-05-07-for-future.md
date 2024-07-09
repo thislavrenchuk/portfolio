@@ -81,10 +81,12 @@ I was able to implement a stab functionality using arrows through the use of Tri
 
 If the Player Character is within the trigger box and is therefore "within range", upon triggering the Stab mechanic, the appropriate `AnimMontage` runs, and with the help of a custom `AnimNotify`, the damage is dealt at the moment the arrow stab is performed. Note: damage is dealt only if the line trace of the arrow's `SkeletalMeshComponent` hits another Actor. 
 
-<figure style="margin-left: auto; margin-right: auto;">
-    <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" width="500" alt="Using arrows in melee combat">
-</figure>
-<p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
+<div class="center" style="margin-left: auto; margin-right: auto;">
+    <figure>
+        <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" width="500" alt="Using arrows in melee combat">
+    </figure>
+    <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
+</div>
 
 <a href="https://github.com/thislavrenchuk/for_future_project/blob/main/Source/Hunter/StabNotify.cpp">*StabNotify.cpp*</a>
 

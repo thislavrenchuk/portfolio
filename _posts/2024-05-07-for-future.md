@@ -83,7 +83,7 @@ If the Player Character is within the trigger box and is therefore "within range
 
 <div style="display: grid; place-items: center;" class="zoom">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" width="500" alt="Using arrows in melee combat">
+        <img src="{{ site.baseurl }}/assets/images/Stab-functionality.gif" class="zoom" width="500" alt="Using arrows in melee combat">
     </figure>
     <p style="text-align: center;"><i>Using arrows in melee combat.</i></p>
 </div>

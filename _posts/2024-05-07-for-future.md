@@ -454,7 +454,7 @@ With the above in mind, I envisioned a setting that varied in available space, t
 </div>
 <div style="display: grid; place-items: center;">
     <figure>
-        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" width="800" class="center" alt="First Draft Level Design">
+        <img src="{{ site.baseurl }}/assets/images/Archer_Milanote_LevelDesign_Map.png" width="1100" class="center" alt="First Draft Level Design">
     </figure>
     <p style="text-align: center;"><i>First Draft Level Design</i></p>
 </div>

@@ -3,7 +3,7 @@ layout: post
 title:  "The Oddity Office (Game Jam)"
 author: ana 
 categories: [ Unreal, 2D, Game Jam ]
-image: assets/images/office-sim.png
+image: assets/images/npc_interact-office-sim.gif
 comments: false
 ---
 
